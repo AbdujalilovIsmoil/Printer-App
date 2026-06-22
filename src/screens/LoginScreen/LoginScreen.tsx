@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { RootStackParamList } from '../../shared/types';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -10,11 +11,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-
-type RootStackParamList = {
-  home: undefined;
-  login: undefined;
-};
 
 interface FormProps {
   login: string;
@@ -37,13 +33,7 @@ const LoginScreen = () => {
         "Login yokida parolni kiritishingiz kerak bo'ladi.",
       );
     } else {
-      Alert.alert(
-        "Ma'lumotlar",
-        `
-        Login: ${formValues.login}  
-        Password: ${formValues.password}  
-        `,
-      );
+      navigation.navigate('home');
 
       setFormValues({ login: '', password: '' });
     }
