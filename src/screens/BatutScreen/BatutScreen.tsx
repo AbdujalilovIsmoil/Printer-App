@@ -10,23 +10,25 @@ const BatutScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View
-        style={[
-          styles.contentContainer,
-          { paddingBottom: Number(hieghtChange.toFixed()) * 1.75 },
-        ]}
-      >
-        <View style={styles.content}>
-          <Text style={styles.contentTitle}>Vaqtni tanlang</Text>
-          <Text style={styles.contentText}>Seans davomiyligini tanlang</Text>
-        </View>
-
+      <View style={styles.contentContainer}>
         <FlatList
           data={batutTimes}
           keyExtractor={el => String(el.id)}
-          renderItem={({ item }) => <Card {...item} isPressed={isPressed} setIsPressed={setIsPressed}/>}
+          renderItem={({ item }) => (
+            <Card {...item} isPressed={isPressed} setIsPressed={setIsPressed} />
+          )}
           contentContainerStyle={{
-            paddingBottom: Number(hieghtChange.toFixed()),
+            paddingBottom: hieghtChange,
+          }}
+          ListHeaderComponent={() => {
+            return (
+              <View style={styles.content}>
+                <Text style={styles.contentTitle}>Vaqtni tanlang</Text>
+                <Text style={styles.contentText}>
+                  Seans davomiyligini tanlang
+                </Text>
+              </View>
+            );
           }}
         />
       </View>
