@@ -1,8 +1,20 @@
+import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-const ConfirmationButton = () => {
+interface ConfirmationButtonProps {
+  children: React.ReactNode;
+  onHeightChange: (height: number) => void;
+}
+
+const ConfirmationButton = ({
+  children,
+  onHeightChange,
+}: ConfirmationButtonProps) => {
   return (
-    <View style={styles.confirmationButtonContainer}>
+    <View
+      style={styles.confirmationButtonContainer}
+      onLayout={e => onHeightChange(e.nativeEvent.layout.height)}
+    >
       <Pressable
         style={({ pressed }) => {
           return pressed
@@ -10,7 +22,7 @@ const ConfirmationButton = () => {
             : styles.confirmationButton;
         }}
       >
-        <Text style={styles.confirmationButtonText}>Tasdiqlash</Text>
+        <Text style={styles.confirmationButtonText}>{children}</Text>
       </Pressable>
     </View>
   );

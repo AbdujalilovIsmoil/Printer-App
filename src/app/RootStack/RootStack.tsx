@@ -3,6 +3,7 @@ import { BatutHeader } from '../../screens/BatutScreen/components';
 import HomeHeader from '../../screens/HomeScreen/components/Header';
 import { BatutScreen, HomeScreen, LoginScreen } from '../../screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,12 @@ const RootStack = () => {
           options={{ header: () => <BatutHeader /> }}
         />
       </Stack.Navigator>
+
+      <StatusBar
+        translucent={false}
+        barStyle={'dark-content'}
+        backgroundColor={'#fff'}
+      />
     </SafeAreaProvider>
   );
 };

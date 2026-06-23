@@ -1,11 +1,16 @@
 import { LogoutButton } from '../../../shared/UI';
 import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HomeHeader = () => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerLogo}>Logo</Text>
-      <LogoutButton />
+    <View style={{ paddingTop: insets.top }}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerLogo}>Logo</Text>
+        <LogoutButton />
+      </View>
     </View>
   );
 };
@@ -13,9 +18,6 @@ const HomeHeader = () => {
 export default HomeHeader;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   headerContainer: {
     paddingVertical: 12,
     flexDirection: 'row',

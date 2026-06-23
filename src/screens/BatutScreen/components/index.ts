@@ -1,3 +1,4 @@
+import Card from './Card';
 import BatutHeader from './BatutHeader';
 
-export { BatutHeader };
+export { BatutHeader, Card };
