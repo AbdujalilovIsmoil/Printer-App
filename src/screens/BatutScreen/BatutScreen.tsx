@@ -18,7 +18,7 @@ const BatutScreen = () => {
             <Card {...item} isPressed={isPressed} setIsPressed={setIsPressed} />
           )}
           contentContainerStyle={{
-            paddingBottom: hieghtChange,
+            paddingBottom: hieghtChange + 24,
           }}
           ListHeaderComponent={() => {
             return (
