@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import Card from './components/Card';
-import { Category } from '../../shared/types';
 import { categories } from '../../shared/constants';
-import { ScrollView, StyleSheet, Alert, View, FlatList } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import XPrinter from '@urolovshohjahon/react-native-xprinter';
 
@@ -47,5 +46,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 32,
     paddingHorizontal: 24,
+    backgroundColor: '#F7F9FB',
   },
 });

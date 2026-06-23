@@ -1,6 +1,7 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { HomeScreen, LoginScreen } from '../../screens';
+import { BatutHeader } from '../../screens/BatutScreen/components';
 import HomeHeader from '../../screens/HomeScreen/components/Header';
+import { BatutScreen, HomeScreen, LoginScreen } from '../../screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,11 @@ const RootStack = () => {
           name="login"
           component={LoginScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="batut"
+          component={BatutScreen}
+          options={{ header: () => <BatutHeader /> }}
         />
       </Stack.Navigator>
     </SafeAreaProvider>

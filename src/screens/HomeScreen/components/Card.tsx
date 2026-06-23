@@ -3,18 +3,16 @@ import { Category } from '../../../shared/types';
 import { StyleSheet, Text, View } from 'react-native';
 
 const Card = (props: Omit<Category, 'id'>) => {
-  const { categoryName, categoryIcon, categoryText } = props;
-
-  const Icon = categoryIcon;
+  const Icon = props.categoryIcon;
 
   return (
-    <Link screen="login" params={{}} style={styles.link}>
+    <Link screen={props.categoryLink} params={{}} style={styles.link}>
       <View style={styles.cardContainer}>
         <View style={styles.categoryIconContainer}>
           <Icon height={30} width={30} style={styles.categoryIcon} />
         </View>
-        <Text style={styles.categoryName}>{categoryName}</Text>
-        <Text style={styles.categoryText}>{categoryText}</Text>
+        <Text style={styles.categoryName}>{props.categoryName}</Text>
+        <Text style={styles.categoryText}>{props.categoryText}</Text>
       </View>
     </Link>
   );

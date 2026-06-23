@@ -1,35 +1,33 @@
-import { LogoutButton } from '../../../shared/UI';
 import { StyleSheet, Text, View } from 'react-native';
+import { BackToScreenButton, LogoutButton } from '../../../shared/UI';
 
-const HomeHeader = () => {
+const BatutHeader = () => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerLogo}>Logo</Text>
+      <BackToScreenButton />
+      <Text style={styles.headerTitle}>Vaqtni tanlash</Text>
       <LogoutButton />
     </View>
   );
 };
 
-export default HomeHeader;
+export default BatutHeader;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   headerContainer: {
     paddingVertical: 12,
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomWidth: 1,
     paddingHorizontal: 24,
-    backgroundColor: '#F8FAFC',
+    borderBottomStartRadius: 1,
     borderBottomColor: '#E2E8F0',
     justifyContent: 'space-between',
   },
-  headerLogo: {
-    fontSize: 24,
+
+  headerTitle: {
+    fontSize: 18,
     fontWeight: 700,
     color: '#0F766E',
-    textTransform: 'uppercase',
   },
 });

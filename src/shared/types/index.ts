@@ -8,6 +8,7 @@ export type RootStackParamList = {
 
 export interface Category {
   id: number;
+  categoryLink: string;
   categoryName: string;
   categoryText: string;
   categoryIcon: React.ComponentType<SvgProps>;
