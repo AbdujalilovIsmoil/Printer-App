@@ -1,4 +1,7 @@
 import { Home, Print, Success } from '../../assets';
+import { useNavigation } from '@react-navigation/native';
+import type { RootStackParamList } from '../../shared/types';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
   View,
   Text,
@@ -8,6 +11,9 @@ import {
 } from 'react-native';
 
 const CheckScreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.succesContent}>
@@ -53,7 +59,10 @@ const CheckScreen = () => {
             <Text style={styles.printBtnText}>Chop etish</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.goBack}>
+        <TouchableOpacity
+          style={styles.goBack}
+          onPress={() => navigation.navigate('home')}
+        >
           <View style={styles.printBox}>
             <Home height={20} width={20} style={styles.printIcon} />
             <Text style={styles.goBackText}>Bosh sahifaga qaytish</Text>

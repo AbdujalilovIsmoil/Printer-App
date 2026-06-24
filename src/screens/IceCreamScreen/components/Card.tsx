@@ -1,10 +1,9 @@
 import { IceCreamTypes } from '../../../shared/types';
 import {
-  StyleSheet,
   Text,
+  StyleSheet,
   TouchableOpacity,
   useWindowDimensions,
-  View,
 } from 'react-native';
 
 const Card = (props: IceCreamTypes) => {
