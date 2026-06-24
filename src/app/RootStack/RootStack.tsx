@@ -4,10 +4,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import HomeHeader from '../../screens/HomeScreen/components/Header';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
-  BatutScreen,
   HomeScreen,
-  IceCreamScreen,
+  BatutScreen,
   LoginScreen,
+  WaterScreen,
+  IceCreamScreen,
 } from '../../screens';
 
 const Stack = createNativeStackNavigator();
@@ -46,6 +47,14 @@ const RootStack = () => {
           component={IceCreamScreen}
           options={{
             title: 'Muzqaymoq tanlash',
+            header: ({ options }) => <Header>{options.title}</Header>,
+          }}
+        />
+        <Stack.Screen
+          name="water"
+          component={WaterScreen}
+          options={{
+            title: 'Suv tanlash',
             header: ({ options }) => <Header>{options.title}</Header>,
           }}
         />

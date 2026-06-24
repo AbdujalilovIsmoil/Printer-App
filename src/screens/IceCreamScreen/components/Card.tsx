@@ -20,7 +20,7 @@ const Card = (props: IceCreamTypes) => {
 
   return (
     <TouchableOpacity
-      onPress={() => props.setIsPressed(props.id)}
+      onPress={() => props.setIsPressed?.(props.id)}
       style={[
         styles.card,
         { width: cardWidth },

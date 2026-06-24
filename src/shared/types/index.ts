@@ -11,8 +11,8 @@ export interface Category {
   id: number;
   categoryName: string;
   categoryText: string;
-  categoryLink: 'home' | 'batut';
   categoryIcon: React.ComponentType<SvgProps>;
+  categoryLink: 'home' | 'batut' | 'ice-cream' | 'water' | 'cocteil';
 }
 
 export interface BatutTimesTypes {
@@ -24,7 +24,7 @@ export interface BatutTimesTypes {
   priceCategory: string;
   isPressed?: number | null;
   icon: React.ComponentType<SvgProps>;
-  setIsPressed: (num: number) => void;
+  setIsPressed?: (num: number) => void;
 }
 
 export interface IceCreamTypes {
@@ -35,5 +35,16 @@ export interface IceCreamTypes {
   priceNumber: number;
   isPressed?: number | null;
   icon: React.ComponentType<SvgProps>;
-  setIsPressed: (num: number) => void;
+  setIsPressed?: (num: number) => void;
+}
+
+export interface WaterTypes {
+  id: number;
+  priceText: string;
+  bottleText: string;
+  priceNumber: number;
+  bottleNumber: number;
+  isPressed?: number | null;
+  icon: React.ComponentType<SvgProps>;
+  setIsPressed?: (num: number) => void;
 }
