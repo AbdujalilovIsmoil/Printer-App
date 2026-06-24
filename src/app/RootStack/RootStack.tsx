@@ -1,16 +1,26 @@
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { BatutHeader } from '../../screens/BatutScreen/components';
-import HomeHeader from '../../screens/HomeScreen/components/Header';
-import { BatutScreen, HomeScreen, LoginScreen } from '../../screens';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'react-native';
+import Header from '../../shared/UI/Header';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import HomeHeader from '../../screens/HomeScreen/components/Header';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  BatutScreen,
+  HomeScreen,
+  IceCreamScreen,
+  LoginScreen,
+} from '../../screens';
 
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
   return (
     <SafeAreaProvider>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator
+        initialRouteName="home"
+        screenOptions={{
+          animation: 'slide_from_right',
+        }}
+      >
         <Stack.Screen
           name="home"
           component={HomeScreen}
@@ -26,7 +36,18 @@ const RootStack = () => {
         <Stack.Screen
           name="batut"
           component={BatutScreen}
-          options={{ header: () => <BatutHeader /> }}
+          options={{
+            title: 'Vaqtni tanlash',
+            header: ({ options }) => <Header>{options.title}</Header>,
+          }}
+        />
+        <Stack.Screen
+          name="ice-cream"
+          component={IceCreamScreen}
+          options={{
+            title: 'Muzqaymoq tanlash',
+            header: ({ options }) => <Header>{options.title}</Header>,
+          }}
         />
       </Stack.Navigator>
 

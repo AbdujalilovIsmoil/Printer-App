@@ -1,5 +1,14 @@
-import { BatutTimesTypes, Category } from '../types';
-import { ArrowTopRight, Cocteil, Hour, IceCream, Water } from '../../assets';
+import { BatutTimesTypes, Category, IceCreamTypes } from '../types';
+import {
+  ArrowTopRight,
+  Cocteil,
+  Hour,
+  IceCream,
+  IceCream1,
+  IceCream2,
+  IceCream3,
+  Water,
+} from '../../assets';
 
 export const categories: Category[] = [
   {
@@ -59,5 +68,40 @@ export const batutTimes: BatutTimesTypes[] = [
     soumText: "so'm",
     minuteText: 'minut',
     priceCategory: 'premium',
+  },
+];
+
+export const iceCreams: IceCreamTypes[] = [
+  {
+    id: 1,
+    icon: IceCream1,
+    priceNumber: 10,
+    grammNumber: 100,
+    grammText: 'gram',
+    priceText: "so'm",
+  },
+  {
+    id: 2,
+    icon: IceCream1,
+    priceNumber: 18,
+    grammNumber: 200,
+    grammText: 'gram',
+    priceText: "so'm",
+  },
+  {
+    id: 3,
+    icon: IceCream2,
+    priceNumber: 45,
+    grammNumber: 500,
+    grammText: 'gram',
+    priceText: "so'm",
+  },
+  {
+    id: 4,
+    grammNumber: 1,
+    grammText: 'kg',
+    icon: IceCream3,
+    priceNumber: 85,
+    priceText: "so'm",
   },
 ];

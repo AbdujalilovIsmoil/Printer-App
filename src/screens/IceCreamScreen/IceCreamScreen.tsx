@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Card } from './components';
-import { batutTimes } from '../../shared/constants';
+import { iceCreams } from '../../shared/constants';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { ConfirmationButton, Content } from '../../shared/UI';
 
-const BatutScreen = () => {
+const IceCreamScreen = () => {
   const [isPressed, setIsPressed] = useState<number>(0);
   const [hieghtChange, setHeightChange] = useState<number>(0);
 
@@ -12,33 +12,41 @@ const BatutScreen = () => {
     <View style={styles.container}>
       <View style={styles.contentContainer}>
         <FlatList
-          data={batutTimes}
-          keyExtractor={el => String(el.id)}
-          ListHeaderComponent={() => (
-            <Content
-              title="Vaqtni tanlang"
-              text="Seans davomiyligini tanlang"
-            />
-          )}
+          numColumns={2}
+          data={iceCreams}
+          keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
             <Card {...item} isPressed={isPressed} setIsPressed={setIsPressed} />
+          )}
+          ListHeaderComponent={() => (
+            <Content
+              title="Hajmni tanlang"
+              text="Buyurtma uchun kerakli muzqaymoq miqdorini tanlang"
+            />
           )}
           contentContainerStyle={{
             paddingBottom: hieghtChange + 24,
           }}
+          columnWrapperStyle={{
+            marginBottom: 10,
+            justifyContent: 'space-between',
+          }}
         />
       </View>
-      <ConfirmationButton onHeightChange={height => setHeightChange(height)}>
+
+      <ConfirmationButton onHeightChange={setHeightChange}>
         Tasdiqlash
       </ConfirmationButton>
     </View>
   );
 };
 
-export default BatutScreen;
+export default IceCreamScreen;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F7F9FB' },
+  container: {
+    flex: 1,
+  },
   contentContainer: {
     paddingHorizontal: 24,
   },

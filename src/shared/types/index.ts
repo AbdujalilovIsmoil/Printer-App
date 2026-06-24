@@ -21,7 +21,18 @@ export interface BatutTimesTypes {
   minuteText: string;
   soumNumber: number;
   priceCategory: string;
-  isPressed: number | null;
-  setIsPressed: (num: number) => void;
+  isPressed?: number | null;
   icon: React.ComponentType<SvgProps>;
+  setIsPressed: (num: number) => void;
+}
+
+export interface IceCreamTypes {
+  id: number;
+  grammText: string;
+  priceText: string;
+  grammNumber: number;
+  priceNumber: number;
+  isPressed?: number | null;
+  icon: React.ComponentType<SvgProps>;
+  setIsPressed: (num: number) => void;
 }

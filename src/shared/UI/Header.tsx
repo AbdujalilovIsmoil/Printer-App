@@ -1,22 +1,27 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { BackToScreenButton, LogoutButton } from '../../../shared/UI';
+import { BackToScreenButton, LogoutButton } from '../../shared/UI';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const BatutHeader = () => {
+interface HeaderProps {
+  children: React.ReactNode;
+}
+
+const Header = ({ children }: HeaderProps) => {
   const insets = useSafeAreaInsets();
 
   return (
     <View style={{ paddingTop: insets.top }}>
       <View style={styles.headerContainer}>
         <BackToScreenButton />
-        <Text style={styles.headerTitle}>Vaqtni tanlash</Text>
+        <Text style={styles.headerTitle}>{children}</Text>
         <LogoutButton />
       </View>
     </View>
   );
 };
 
-export default BatutHeader;
+export default Header;
 
 const styles = StyleSheet.create({
   headerContainer: {

@@ -8,7 +8,7 @@ const Card = (props: BatutTimesTypes) => {
 
   return (
     <TouchableOpacity
-      onPress={() => props.setIsPressed(props.id)}
+      onPress={() => props.setIsPressed?.(props.id)}
       style={[styles.card, isPressed && styles.cardPressed]}
     >
       {isPressed && (
@@ -38,7 +38,7 @@ export default Card;
 const styles = StyleSheet.create({
   card: {
     padding: 32,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 8,
     marginBottom: 16,
     position: 'relative',
