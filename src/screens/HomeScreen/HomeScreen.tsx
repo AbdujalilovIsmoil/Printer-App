@@ -8,6 +8,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={categories}
+        contentContainerStyle={styles.categories}
         renderItem={({ item }) => <Card {...item} />}
       />
     </SafeAreaView>
@@ -22,5 +23,8 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
     paddingHorizontal: 24,
     backgroundColor: '#F7F9FB',
+  },
+  categories: {
+    gap: 24,
   },
 });

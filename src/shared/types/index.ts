@@ -4,13 +4,14 @@ import { SvgProps } from 'react-native-svg';
 export type RootStackParamList = {
   home: undefined;
   login: undefined;
+  batut: undefined;
 };
 
 export interface Category {
   id: number;
-  categoryLink: string;
   categoryName: string;
   categoryText: string;
+  categoryLink: 'home' | 'batut';
   categoryIcon: React.ComponentType<SvgProps>;
 }
 

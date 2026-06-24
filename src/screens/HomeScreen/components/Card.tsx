@@ -1,12 +1,17 @@
-import { Link } from '@react-navigation/native';
-import { Category } from '../../../shared/types';
-import { StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Category, RootStackParamList } from '../../../shared/types';
+import { StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const Card = (props: Omit<Category, 'id'>) => {
   const Icon = props.categoryIcon;
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
-    <Link screen={props.categoryLink} params={{}} style={styles.link}>
+    <TouchableNativeFeedback
+      onPress={() => navigation.navigate(props.categoryLink)}
+    >
       <View style={styles.cardContainer}>
         <View style={styles.categoryIconContainer}>
           <Icon height={30} width={30} style={styles.categoryIcon} />
@@ -14,16 +19,13 @@ const Card = (props: Omit<Category, 'id'>) => {
         <Text style={styles.categoryName}>{props.categoryName}</Text>
         <Text style={styles.categoryText}>{props.categoryText}</Text>
       </View>
-    </Link>
+    </TouchableNativeFeedback>
   );
 };
 
 export default Card;
 
 const styles = StyleSheet.create({
-  link: {
-    marginBottom: 25,
-  },
   cardContainer: {
     padding: 32,
     width: '100%',
