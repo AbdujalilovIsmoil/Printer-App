@@ -5,6 +5,7 @@ export type RootStackParamList = {
   home: undefined;
   login: undefined;
   batut: undefined;
+  check: undefined;
 };
 
 export interface Category {

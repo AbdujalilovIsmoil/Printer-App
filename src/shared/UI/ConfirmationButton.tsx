@@ -1,5 +1,8 @@
 import React from 'react';
+import { RootStackParamList } from '../types';
+import { useNavigation } from '@react-navigation/native';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface ConfirmationButtonProps {
   children: React.ReactNode;
@@ -10,12 +13,16 @@ const ConfirmationButton = ({
   children,
   onHeightChange,
 }: ConfirmationButtonProps) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   return (
     <View
       style={styles.confirmationButtonContainer}
       onLayout={e => onHeightChange(e.nativeEvent.layout.height)}
     >
       <Pressable
+        onPress={() => navigation.navigate('check')}
         style={({ pressed }) => {
           return pressed
             ? [styles.confirmationButton, styles.confirmationButtonPressed]

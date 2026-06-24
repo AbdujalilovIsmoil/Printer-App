@@ -9,6 +9,7 @@ import {
   LoginScreen,
   WaterScreen,
   IceCreamScreen,
+  CheckScreen,
 } from '../../screens';
 
 const Stack = createNativeStackNavigator();
@@ -55,6 +56,14 @@ const RootStack = () => {
           component={WaterScreen}
           options={{
             title: 'Suv tanlash',
+            header: ({ options }) => <Header>{options.title}</Header>,
+          }}
+        />
+        <Stack.Screen
+          name="check"
+          component={CheckScreen}
+          options={{
+            title: "To'lov qo'g'ozi",
             header: ({ options }) => <Header>{options.title}</Header>,
           }}
         />
