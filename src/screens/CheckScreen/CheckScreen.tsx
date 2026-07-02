@@ -8,11 +8,104 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  NativeModules,
 } from 'react-native';
+import {
+  ALIGNMENT_CENTER,
+  ALIGNMENT_LEFT,
+  FNT_DEFAULT,
+  PRINTER_CODE_PAGE_RU,
+  TXT_1WIDTH,
+  TXT_2WIDTH,
+} from '../../shared/constants';
 
 const CheckScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const Xprinter = NativeModules.XPModule;
+
+  const printCheck = async () => {
+    const width = 32;
+
+    const line = (left: string, right: string = '') => {
+      const spaces = ' '.repeat(
+        Math.max(0, width - left.length - right.length),
+      );
+      return left + spaces + right;
+    };
+
+    const separator = '--------------------------------\n';
+
+    // Sarlavha
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      'BATUT XIZMATI\n\n',
+      ALIGNMENT_CENTER,
+      FNT_DEFAULT,
+      TXT_2WIDTH,
+    );
+
+    // Chiziq
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      separator + '\n',
+      ALIGNMENT_LEFT,
+      FNT_DEFAULT,
+      TXT_1WIDTH,
+    );
+
+    // Ma'lumotlar
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      line('Vaqt:', '20 min') + '\n\n',
+      ALIGNMENT_LEFT,
+      FNT_DEFAULT,
+      TXT_1WIDTH,
+    );
+
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      line('Narx:', "20 000 so'm") + '\n\n',
+      ALIGNMENT_LEFT,
+      FNT_DEFAULT,
+      TXT_1WIDTH,
+    );
+
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      line('Operator:', 'Azamat') + '\n\n',
+      ALIGNMENT_LEFT,
+      FNT_DEFAULT,
+      TXT_1WIDTH,
+    );
+
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      line('Sana:', '25.05.2024') + '\n\n',
+      ALIGNMENT_LEFT,
+      FNT_DEFAULT,
+      TXT_1WIDTH,
+    );
+
+    // Pastki chiziq
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      separator + '\n',
+      ALIGNMENT_LEFT,
+      FNT_DEFAULT,
+      TXT_1WIDTH,
+    );
+
+    // Rahmat
+    await Xprinter.printTextWithStyle(
+      PRINTER_CODE_PAGE_RU,
+      '\nRAHMAT!\n\n\n',
+      ALIGNMENT_CENTER,
+      FNT_DEFAULT,
+      TXT_2WIDTH,
+    );
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -53,7 +146,7 @@ const CheckScreen = () => {
       </View>
 
       <View style={styles.footerButtons}>
-        <TouchableOpacity style={styles.printBtn}>
+        <TouchableOpacity style={styles.printBtn} onPress={printCheck}>
           <View style={styles.printBox}>
             <Print height={20} width={20} style={styles.printIcon} />
             <Text style={styles.printBtnText}>Chop etish</Text>

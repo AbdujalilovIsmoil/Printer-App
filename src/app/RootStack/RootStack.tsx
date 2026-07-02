@@ -2,15 +2,14 @@ import { StatusBar } from 'react-native';
 import Header from '../../shared/UI/Header';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import HomeHeader from '../../screens/HomeScreen/components/Header';
-import PrinterScreen from '../../screens/PrinterScreen/PrinterScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   HomeScreen,
   BatutScreen,
   LoginScreen,
   WaterScreen,
-  IceCreamScreen,
   CheckScreen,
+  IceCreamScreen,
 } from '../../screens';
 
 const Stack = createNativeStackNavigator();
@@ -63,14 +62,6 @@ const RootStack = () => {
         <Stack.Screen
           name="check"
           component={CheckScreen}
-          options={{
-            title: "To'lov qo'g'ozi",
-            header: ({ options }) => <Header>{options.title}</Header>,
-          }}
-        />
-        <Stack.Screen
-          name="printer-screen"
-          component={PrinterScreen}
           options={{
             title: "To'lov qo'g'ozi",
             header: ({ options }) => <Header>{options.title}</Header>,
