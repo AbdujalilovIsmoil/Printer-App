@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Modal } from '../../shared/UI';
 import { RootStackParamList } from '../../shared/types';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -6,7 +7,6 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
   Text,
   View,
-  Alert,
   TextInput,
   StyleSheet,
   TouchableOpacity,
@@ -18,6 +18,7 @@ interface FormProps {
 }
 
 const LoginScreen = () => {
+  const [isLogin, setIsLogin] = useState<boolean>(false);
   const [isVisibility, setIsVisibility] = useState<boolean>(false);
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -28,10 +29,7 @@ const LoginScreen = () => {
 
   const sendFormValues = () => {
     if (formValues.login === '' || formValues.password === '') {
-      Alert.alert(
-        "Ma'lumotlar bo'sh",
-        "Login yokida parolni kiritishingiz kerak bo'ladi.",
-      );
+      setIsLogin(true);
     } else {
       navigation.navigate('home');
 
@@ -41,6 +39,18 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Modal isLogout={isLogin}>
+        <Text style={styles.emptyTitle}>Ma'lumotlar bo'sh</Text>
+        <Text style={styles.emptyText}>
+          Login yokida parolni kiritishingiz kerak bo'ladi.
+        </Text>
+        <TouchableOpacity
+          style={styles.emptyButton}
+          onPress={() => setIsLogin(false)}
+        >
+          <Text style={styles.emptyButtonText}>Yaxshi, tushindim 😊</Text>
+        </TouchableOpacity>
+      </Modal>
       <View style={styles.content}>
         <Text style={styles.contentTitle}>Kirish</Text>
         <Text style={styles.contentText}>
@@ -58,6 +68,7 @@ const LoginScreen = () => {
               keyboardType="default"
               value={formValues.login}
               style={styles.formGroupInput}
+              placeholderTextColor={'#6B7280'}
               placeholder="Kirish kodini kiriting"
               onChangeText={value => {
                 setFormValues({ ...formValues, login: value });
@@ -75,6 +86,7 @@ const LoginScreen = () => {
               autoCapitalize="none"
               value={formValues.password}
               secureTextEntry={!isVisibility}
+              placeholderTextColor={'#6B7280'}
               placeholder="Parolingizni kiriting"
               style={[styles.formGroupInput, { paddingRight: 45 }]}
               onChangeText={value => {
@@ -135,11 +147,13 @@ const styles = StyleSheet.create({
   formGroupInput: {
     padding: 10,
     width: '100%',
+    fontSize: 16,
     borderWidth: 2,
     borderRadius: 5,
     paddingLeft: 12,
     paddingRight: 12,
     textAlign: 'left',
+    color: '#000000',
     borderStyle: 'solid',
     borderColor: '#767a7f',
   },
@@ -169,5 +183,32 @@ const styles = StyleSheet.create({
     top: 5,
     right: 10,
     position: 'absolute',
+  },
+  emptyTitle: {
+    fontSize: 24,
+    fontWeight: 800,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  emptyText: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: 500,
+    marginBottom: 16,
+    textAlign: 'center',
+  },
+  emptyButton: {
+    padding: 16,
+    width: '100%',
+    borderWidth: 1,
+    borderRadius: 8,
+    borderStyle: 'solid',
+    borderColor: '#BA1A1A',
+    backgroundColor: '#BA1A1A',
+  },
+  emptyButtonText: {
+    fontSize: 18,
+    color: '#ffffff',
+    textAlign: 'center',
   },
 });

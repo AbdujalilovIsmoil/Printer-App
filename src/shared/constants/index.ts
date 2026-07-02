@@ -136,3 +136,32 @@ export const waters: WaterTypes[] = [
     bottleText: 'litr',
   },
 ];
+
+export const PRINTER_CODE_PAGE_RU = 'CP866';
+export const PRINTER_CODE_PAGE_TR = 'CP858';
+export const PRINTER_CODE_PAGE_ZH = 'GBK';
+
+export const PRINTER_WIDTH = 48;
+export const PRINTER_WIDTH1_5 = 32;
+export const PRINTER_WIDTH2 = 24;
+export const ALIGNMENT_LEFT = 0;
+export const ALIGNMENT_CENTER = 1;
+export const ALIGNMENT_RIGHT = 2;
+export const FNT_DEFAULT = 0;
+export const FNT_FONTB = 1;
+export const FNT_BOLD = 8;
+export const FNT_REVERSE = 16;
+export const FNT_UNDERLINE = 128;
+export const FNT_UNDERLINE2 = 256;
+
+export const TXT_1WIDTH = 0;
+export const TXT_2WIDTH = 1;
+export const TXT_3WIDTH = 2;
+
+export const CHECK_SIZE_STANDART = 0;
+export const CHECK_SIZE_1X = 1;
+export const CHECK_SIZE_2X = 2;
+export const CHECK_SIZE_LARGE = 5;
+
+export const FONT_STANDARD = 0;
+export const FONT_COMPRESS = 1;

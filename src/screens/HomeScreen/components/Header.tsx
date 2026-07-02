@@ -1,17 +1,21 @@
-import { LogoutButton } from '../../../shared/UI';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { LogoutRed } from '../../../assets';
+import { LogoutButton, Modal } from '../../../shared/UI';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const HomeHeader = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={{ paddingTop: insets.top }}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerLogo}>Logo</Text>
-        <LogoutButton />
+    <>
+      <View style={{ paddingTop: insets.top }}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerLogo}>Logo</Text>
+          <LogoutButton />
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 

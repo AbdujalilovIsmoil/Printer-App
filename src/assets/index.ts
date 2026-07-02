@@ -10,6 +10,7 @@ import Bottle3 from './bottle-3.svg';
 import IceCream from './ice-cream.svg';
 import ArrowLeft from './arrow-left.svg';
 import LogoutApp from './logout-app.svg';
+import LogoutRed from './logout-red.svg';
 import IceCream1 from './ice-cream-1.svg';
 import IceCream2 from './ice-cream-2.svg';
 import IceCream3 from './ice-cream-3.svg';
@@ -26,6 +27,7 @@ export {
   Bottle2,
   Bottle3,
   IceCream,
+  LogoutRed,
   LogoutApp,
   ArrowLeft,
   IceCream1,
